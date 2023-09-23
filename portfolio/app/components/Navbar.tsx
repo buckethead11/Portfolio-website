@@ -7,6 +7,7 @@ import Themebutton from "./Themebutton"
 
 export default function Navbar() {
     let pathname = usePathname() || '/'
+    const linearGradient = 'linear-gradient(90deg, #FF6B6B, #6B66FF)'
     return(
         <Disclosure as="nav">
             {({open}) => (
@@ -17,7 +18,7 @@ export default function Navbar() {
                             <div className="flex items-center">
                                 <Link href="/">
                                     <h1 className="text-2xl font-medium">
-                                        Arjun <span className="text-teal-500">Anand Pramod</span>
+                                        Arjun <span className="text-sky-500">Anand Pramod</span>
                                     </h1>
                                 </Link>
                             </div>
@@ -28,7 +29,7 @@ export default function Navbar() {
                                 prefetch 
                                 className={`${
                                     pathname === '/' 
-                                    ? "border-teal-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                                    ? "border-sky-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                     : "border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                 }`}
                                 >
@@ -39,7 +40,7 @@ export default function Navbar() {
                                 prefetch 
                                 className={`${
                                     pathname === '/experience' 
-                                    ? "border-teal-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                                    ? "border-sky-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                     : "border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                 }`}
                                 >
@@ -50,12 +51,24 @@ export default function Navbar() {
                                 prefetch 
                                 className={`${
                                     pathname === '/projects' 
-                                    ? "border-teal-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                                    ? "border-sky-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                     : "border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                                 }`}
                                 >
                                     Projects
                                 </Link>
+                                <Link 
+                                href="/hackathons" 
+                                prefetch 
+                                className={`${
+                                    pathname === '/hackathons' 
+                                    ? "border-sky-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                                    : "border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                                }`}
+                                >
+                                    Hackathons
+                                </Link>
+
                                 <Themebutton />
                             </div>
                         </div>
@@ -63,7 +76,7 @@ export default function Navbar() {
                         <div className="-mr-2 flex items-center sm:hidden">
                             <Themebutton />
                                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100
-                                focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                                focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
                                     {open ? (
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -80,18 +93,23 @@ export default function Navbar() {
                 </div>
                 <Disclosure.Panel className="sm:hidden">
                     <div className="pt-2 pb-3 space-y-1">
-                        <Link href="/" prefetch className={`${pathname == "/" ? 'bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
+                        <Link href="/" prefetch className={`${pathname == "/" ? 'bg-sky-50 border-sky-500 text-sky-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
                         : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-white-700 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
                             Home
                         </Link>
-                        <Link href="/experience" prefetch className={`${pathname == "/experience" ? 'bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
+                        <Link href="/experience" prefetch className={`${pathname == "/experience" ? 'bg-sky-50 border-sky-500 text-sky-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
                         : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-white-700 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
                             Experience
                         </Link>
-                        <Link href="/projects" prefetch className={`${pathname == "/projects" ? 'bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
+                        <Link href="/projects" prefetch className={`${pathname == "/projects" ? 'bg-sky-50 border-sky-500 text-sky-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
                         : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-white-700 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
                             Projects
                         </Link>
+                        <Link href="/hackathons" prefetch className={`${pathname == "/hackathons" ? 'bg-sky-50 border-sky-500 text-sky-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800'
+                        : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-white-700 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
+                            Hackathons
+                        </Link>
+
                     </div>
                 </Disclosure.Panel>
                 </>
